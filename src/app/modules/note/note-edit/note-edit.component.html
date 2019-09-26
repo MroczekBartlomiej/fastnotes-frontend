@@ -1,0 +1,17 @@
+<div *ngIf="note" class="ui-g">
+    <div class="ui-g-12">
+        <div class="ui-g-6">
+            <markdown class="variable-binding" [data]="note.body"></markdown>
+        </div>
+        <div class="ui-g-6 height-100">
+            <textarea pInputTextarea class="width-100 height-100" [(ngModel)]="note.body"></textarea>
+        </div>
+    </div>
+    <div class="ui-g-12" align="center">
+        <p-button
+            label="Save"
+            (onClick)="save()"
+        ></p-button>
+    </div>
+    <div class="ui-g-12" align="right"> NOTE ID: {{note.id}}</div>
+</div>
