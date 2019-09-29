@@ -73,7 +73,7 @@
           "options": {
             "browserTarget": "MyNotesFront:build",
             "proxyConfig": "proxy.conf.json",
-            "port": 80
+            "port": 4200
           },
           "configurations": {
             "production": {
