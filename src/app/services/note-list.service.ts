@@ -15,7 +15,7 @@ export class NoteListService {
     }
 
     private getBaseUrl() {
-        return '/api/notes'
+        return '/api/notes';
     }
 
 
