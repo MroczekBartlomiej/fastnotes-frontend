@@ -1,8 +1,13 @@
-<div class="p-grid height-100">
-    <div class="p-col-2">
+<div class="app-note-main-view">
+<mat-sidenav-container class="note-container">
+    <mat-sidenav class="note-list-panel" #sidenav mode="side" [(opened)]="opened">
         <app-notes-list></app-notes-list>
-    </div>
-    <div class="p-col-9">
+    </mat-sidenav>
+    <mat-sidenav-content>
         <app-note-edit></app-note-edit>
-    </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 </div>
+
+
+

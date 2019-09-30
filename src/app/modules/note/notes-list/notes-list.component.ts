@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteService } from "../../../services/note.service";
-import { Note } from "../../../models/Note";
-import { MenuItem } from "primeng/api";
-import { NoteListService } from "../../../services/note-list.service";
+import { NoteService } from '../../../services/note.service';
+import { Note } from '../../../models/Note';
+import { MenuItem } from 'primeng/api';
+import { NoteListService } from '../../../services/note-list.service';
 
 @Component({
     selector: 'app-notes-list',
@@ -12,7 +12,6 @@ import { NoteListService } from "../../../services/note-list.service";
 export class NotesListComponent implements OnInit {
 
     public notes: Note[] = [];
-    items: MenuItem[];
 
 
     constructor(private noteService: NoteService) {
@@ -20,9 +19,12 @@ export class NotesListComponent implements OnInit {
 
     ngOnInit() {
         this.noteService.getHeaders();
-        this.noteService.listObserver.subscribe((value: MenuItem[]) => {
-            console.log("Odebrałem info o: ", value)
-            this.items = value;
-        })
+        this.noteService.listObserver.subscribe((value: Note[]) => {
+            this.notes = value;
+        });
+    }
+
+    loadNote(id: string) {
+        this.noteService.loadNote(id);
     }
 }
