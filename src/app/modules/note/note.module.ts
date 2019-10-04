@@ -10,6 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { NoteMainViewComponent } from './note-main-view/note-main-view.component';
 import { NotesListComponent } from "./notes-list/notes-list.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatButtonModule, MatGridListModule, MatInputModule, MatListModule, MatSidenavModule } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
         ButtonModule,
         PanelMenuModule,
         MenubarModule,
+        MatButtonModule,
+        MatListModule,
+        MatSidenavModule,
+        MatGridListModule,
+        MatInputModule,
     ]
 })
 export class NoteModule {
