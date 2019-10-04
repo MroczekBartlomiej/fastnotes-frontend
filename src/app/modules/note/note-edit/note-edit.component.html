@@ -1,17 +1,18 @@
-<div *ngIf="note" class="ui-g">
-    <div class="ui-g-12">
-        <div class="ui-g-6">
-            <markdown class="variable-binding" [data]="note.body"></markdown>
-        </div>
-        <div class="ui-g-6 height-100">
-            <textarea pInputTextarea class="width-100 height-100" [(ngModel)]="note.body"></textarea>
-        </div>
+<div *ngIf="note">
+    <div class="button-bar">
+        <button mat-raised-button color="primary" (click)="save()">Save</button>
     </div>
-    <div class="ui-g-12" align="center">
-        <p-button
-            label="Save"
-            (onClick)="save()"
-        ></p-button>
-    </div>
-    <div class="ui-g-12" align="right"> NOTE ID: {{note.id}}</div>
+    <mat-grid-list cols="2">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <markdown class="variable-binding" style="height: 100%; width: 100%" [data]="note.body"></markdown>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="height-100 width-100 note-edit-field">
+                <textarea matInput minRows="10" [(ngModel)]="note.body"
+                          style="min-height: 100%; width: 100%"></textarea>
+                </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
+
+

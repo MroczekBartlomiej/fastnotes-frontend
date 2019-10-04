@@ -25,7 +25,6 @@ export class AuthenticationService {
         const headers = new HttpHeaders()
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-        console.log("Pobieram usera z hederem: ", headers);
         return (this.http.get('/user/me', {headers})
             .pipe(map((user: User) => {
                 sessionStorage.setItem('currentUser', JSON.stringify(user))

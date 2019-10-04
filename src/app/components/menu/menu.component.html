@@ -1,3 +1,6 @@
-<h1>FastNote</h1>
-<span>Note everything faster</span>
-<p-menubar [model]="items"></p-menubar>
+
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="noteListVisible()"><mat-icon>menu</mat-icon></button>
+    <h1 class="app-name">FastNotes</h1>
+    <button mat-raised-button (click)="addNote()">Add</button>
+</mat-toolbar>

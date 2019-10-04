@@ -12,9 +12,9 @@ export class NoteService {
     private note = new Subject<Note>();
     noteObserver = this.note.asObservable();
 
-    private noteList = new Subject<MenuItem[]>();
+    private noteList = new Subject<Note[]>();
     listObserver = this.noteList.asObservable();
-    notesHeaders: MenuItem[];
+    notesHeaders: Note[];
 
     constructor(private http: HttpClient) {
     }
@@ -56,45 +56,17 @@ export class NoteService {
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
 
-        let notesItems: MenuItem[] = [];
-
         //TODO: Poprawić do obsługi kategori. notesItems - musi być na pewno poprawione.
         this.http.get(this.getBaseUrl() + '/all', {headers})
             .subscribe((notes: Note[]) => {
-                notes.forEach(note => {
-                    notesItems.push({
-                        label: note.body,
-                        icon: 'pi pi-align-justify',
-                        command: event => this.loadNote(note.id)
-                    })
-                })
-                this.notesHeaders = [
-                    {
-                        label: 'Notes',
-                        icon: 'pi pi-pw pi-file',
-                        expanded: true,
-                        items: notesItems
-                    },
-                ];
-                this.noteList.next(this.notesHeaders)
+                this.notesHeaders = notes;
+                this.noteList.next(this.notesHeaders);
             });
 
 
     }
 
     addNoteHeader(note: Note) {
-
-        let menuItem: MenuItem[] = [{
-            label: note.body,
-            icon: 'pi pi-align-justify',
-            command: event => this.loadNote(note.id)
-        }];
-
-        this.loadNote(note.id);
-        this.notesHeaders.forEach(value => {
-            let items = value.items;
-            items.push.apply(items, menuItem);
-        });
-        this.noteList.next(this.notesHeaders);
+        this.getHeaders();
     }
 }

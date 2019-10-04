@@ -27,12 +27,10 @@ export class OAuthComponent implements OnInit {
         let error = param.get('error');
 
         if (token) {
-            console.log("Oauth token: ", token)
             sessionStorage.setItem('token', token);
             this.authenticationService.prepareUserValue()
                 .pipe(first())
                 .subscribe(data => {
-                        console.log("Oauth przekirowanie.")
                         this.router.navigate(['/notes'])
                     },
                     error =>{
