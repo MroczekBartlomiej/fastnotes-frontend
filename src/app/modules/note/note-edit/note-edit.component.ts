@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteService } from "../../../services/note.service";
-import { Note } from "../../../models/Note";
+import { NoteService } from '../../../services/note.service';
+import { Note } from '../../../models/Note';
 
 @Component({
     selector: 'app-note-edit',
@@ -10,6 +10,7 @@ import { Note } from "../../../models/Note";
 export class NoteEditComponent implements OnInit {
 
     public note: Note = null;
+    edit: boolean;
 
     constructor(
         private noteService: NoteService
@@ -25,6 +26,10 @@ export class NoteEditComponent implements OnInit {
 
     save() {
         this.note.id ? this.noteService.saveNote(this.note) : this.noteService.addNote(this.note);
+    }
+
+    changeMode() {
+        this.edit = !this.edit;
     }
 
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from "@angular/router";
-import { AuthenticationService } from "../../services/authentication.service";
-import { User } from "../../models/User";
-import { first } from "rxjs/operators";
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
+import { first } from 'rxjs/operators';
 
 @Component({
     selector: 'app-oauth',
@@ -23,22 +22,22 @@ export class OAuthComponent implements OnInit {
 
 
     private getParams(param: ParamMap) {
-        let token = param.get('token');
-        let error = param.get('error');
+        const token = param.get('token');
+        const error = param.get('error');
 
         if (token) {
             sessionStorage.setItem('token', token);
             this.authenticationService.prepareUserValue()
                 .pipe(first())
-                .subscribe(data => {
-                        this.router.navigate(['/notes'])
+                .subscribe(() => {
+                        this.router.navigate(['/notes']);
                     },
-                    error =>{
-                    console.log(error);
+                    error => {
+                    console.error(error);
                     });
         } else {
-            //TODO: Add action, maybe redirection.
-            console.log(error);
+            // TODO: Add action, maybe redirection.
+            console.error(error);
         }
     }
 
