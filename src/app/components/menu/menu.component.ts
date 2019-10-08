@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { AppVisibilityService } from '../../services/app-visibility.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
     selector: 'app-menu',
@@ -11,7 +12,8 @@ export class MenuComponent implements OnInit {
 
 
     constructor(private noteService: NoteService,
-                private visibilityService: AppVisibilityService) {
+                private visibilityService: AppVisibilityService,
+                private authService: AuthenticationService) {
     }
 
     ngOnInit() {
