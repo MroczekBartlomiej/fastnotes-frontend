@@ -1,16 +1,19 @@
-<div *ngIf="note">
+<div *ngIf="note" style="min-height: 100%">
     <div class="button-bar">
-        <button mat-raised-button color="primary" (click)="save()">Save</button>
+        <mat-slide-toggle class="button-bar-item" color="primary" labelPosition="after" (change)="changeMode()">Edit</mat-slide-toggle>
+        <button mat-raised-button class="button-bar-item" color="primary" (click)="save()">Save</button>
     </div>
-    <mat-grid-list cols="2">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-            <markdown class="variable-binding" style="height: 100%; width: 100%" [data]="note.body"></markdown>
+    <mat-grid-list cols="4" style="height: 100%;">
+        <mat-grid-tile [colspan]="3" style="height: 100%;">
+            <div *ngIf="!edit" class="preview-field height-100 width-100">
+                <markdown [lineNumbers]="true" class="height-100 width-100" [data]="note.body"></markdown>
+            </div>
+            <div *ngIf="edit" class="edit-field height-100 width-100">
+                <textarea [(ngModel)]="note.body" style="height: 100%; width: 100%"></textarea>
+            </div>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-                <mat-form-field class="height-100 width-100 note-edit-field">
-                <textarea matInput minRows="10" [(ngModel)]="note.body"
-                          style="min-height: 100%; width: 100%"></textarea>
-                </mat-form-field>
+        <mat-grid-tile colspan="1" [style.background]="'white'"  style="height: 100%;">
+
         </mat-grid-tile>
     </mat-grid-list>
 </div>

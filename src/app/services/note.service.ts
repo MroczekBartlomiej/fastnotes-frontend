@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Note } from "../models/Note";
-import { Subject } from "rxjs";
-import { MenuItem } from "primeng/api";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Note } from '../models/Note';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -20,7 +19,7 @@ export class NoteService {
     }
 
     private getBaseUrl() {
-        return '/api/notes'
+        return '/api/notes';
     }
 
     addNote(note: Note) {
@@ -39,7 +38,7 @@ export class NoteService {
         this.http.put(this.getBaseUrl(), note, {headers}).subscribe(value => console.log(value));
     }
 
-    loadNote(id: String) {
+    loadNote(id: string) {
         const headers = new HttpHeaders()
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -47,8 +46,8 @@ export class NoteService {
     }
 
     addNewNote() {
-        let note: Note = {id: null, body: '## New note!'};
-        this.note.next(note)
+        const note: Note = {id: null, body: '## New note!'};
+        this.note.next(note);
     }
 
     getHeaders() {
@@ -56,7 +55,6 @@ export class NoteService {
             .set('Content-Type', 'application/json')
             .set('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
 
-        //TODO: Poprawić do obsługi kategori. notesItems - musi być na pewno poprawione.
         this.http.get(this.getBaseUrl() + '/all', {headers})
             .subscribe((notes: Note[]) => {
                 this.notesHeaders = notes;

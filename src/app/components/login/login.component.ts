@@ -8,8 +8,8 @@ import { environment } from '../../../environments/environment';
 })
 export class LoginComponent implements OnInit {
 
-  public API_BASE_URL: string = environment.apiBaseUrl
-  public ACCESS_TOKEN: string = 'accessToken';
+  public API_BASE_URL: string = environment.apiBaseUrl;
+  public ACCESS_TOKEN = 'accessToken';
 
   public OAUTH2_REDIRECT_URI: string = environment.oauth2RedirectUri;
 
