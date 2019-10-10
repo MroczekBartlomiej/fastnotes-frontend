@@ -5,14 +5,14 @@
 ### Angular ###
 ## Angular ##
 # compiled output
-/dist/**/**/*.*
+/dist
 /tmp
 /app/**/*.js
 /app/**/*.js.map
 **/target/**
 
 # dependencies
-frontend/node_modules/**
+node_modules/**
 /bower_components
 /node_modules/**
 # IDEs and editors
@@ -166,4 +166,5 @@ hs_err_pid*
 .nfs*
 
 # End of https://www.gitignore.io/api/java,linux,kotlin,angular,intellij+iml
+
 
