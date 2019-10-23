@@ -1,16 +1,24 @@
 <div class="login-container">
-  <div class="login-content">
-    <h1 class="login-title">Login to SpringSocial</h1>
-    <div class="social-login">
-      <a class="btn btn-block social-btn google" href="{{GOOGLE_AUTH_URL}}">
-        <img src="../../../assets/google-logo.png" alt="Google" /> Log in with Google</a>
-      <a class="btn btn-block social-btn facebook" href="{{FACEBOOK_AUTH_URL}}">
-        <img src="../../../assets/fb-logo.png"alt="Facebook" /> Log in with Facebook</a>
-      <a class="btn btn-block social-btn github" href="{{GITHUB_AUTH_URL}}">
-        <img src="../../../assets/github-logo.png" alt="Github" /> Log in with Github</a>
+    <div class="login-content">
+        <mat-card class="login-card">
+            <mat-card-header style="text-align: center">
+                <mat-card-title style="text-align: center">Login to FastNotes</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="social-login">
+                    <a mat-button class="btn btn-block social-btn google" href="{{GOOGLE_AUTH_URL}}">
+                        <img src="../../../assets/google-logo.png" alt="Google"/>
+                        Log in with Google
+                    </a>
+                    <a mat-button class="btn btn-block social-btn facebook" href="{{FACEBOOK_AUTH_URL}}"><img src="../../../assets/fb-logo.png"
+                                                                                      alt="Facebook"/> Log in with
+                        Facebook
+                    </a>
+                    <a mat-button class="btn btn-block social-btn github" href="{{FACEBOOK_AUTH_URL}}"><img
+                            src="../../../assets/github-logo.png" alt="Github"/> Log in with Github
+                    </a>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </div>
-    <div class="or-separator">
-      <span class="or-text">OR</span>
-    </div>
-  </div>
 </div>

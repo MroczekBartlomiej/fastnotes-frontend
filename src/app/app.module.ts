@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { OAuthComponent } from './components/oauth/oauth.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatIconModule, MatSliderModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatIconModule, MatSliderModule, MatToolbarModule } from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
     declarations: [
@@ -30,7 +30,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
         MatButtonModule,
         MatToolbarModule,
         MatIconModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatCardModule
     ],
     providers: [],
     bootstrap: [AppComponent]
