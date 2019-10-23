@@ -12,7 +12,7 @@
         </mat-grid-tile>
         <mat-grid-tile *ngIf="edit" [colspan]="3" style="height: 100%;">
             <div class="preview-field height-100 width-100">
-                <textarea [(ngModel)]="note.body" style="height: 100%; width: 100%"></textarea>
+                <textarea class="edit-area" [(ngModel)]="note.body" style="height: 100%; width: 100%"></textarea>
             </div>
         </mat-grid-tile>
         <mat-grid-tile colspan="1" [style.background]="'white'" style="height: 100%;">

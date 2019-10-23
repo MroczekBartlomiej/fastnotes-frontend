@@ -1,9 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'monacoregular';
+  src: url('./assets/fonts/monaco/monaco-webfont.woff2') format('woff2'),
+  url('./assets/fonts/monaco/monaco-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 body{
   min-height: 100%;
   position: relative;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "DejaVu Sans", "Helvetica Neue", sans-serif;
 }
 
 html{
