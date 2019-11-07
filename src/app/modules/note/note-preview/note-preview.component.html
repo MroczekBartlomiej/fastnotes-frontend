@@ -1,0 +1,17 @@
+<div *ngIf="note" style="min-height: 100%">
+    <div>
+    <mat-grid-list cols="4">
+        <mat-grid-tile colspan="3" style="height: 100%; overflow: auto">
+            <markdown [lineNumbers]="true" class="height-100 width-100 note-edit-field" [data]="note.body"></markdown>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" [style.background]="'white'" style="height: 100%;">
+            <div style="position: absolute; bottom: 1rem">
+            <button mat-raised-button class="button-bar-item" color="warn">Delete</button>
+            <button mat-raised-button class="button-bar-item" color="primary" [routerLink]="[{outlets:{note: [5, 'edit']}}]">Edit</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    </div>
+</div>
+

@@ -1,3 +1,4 @@
 
 <app-menu></app-menu>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!authenticationService.isLogged()"></router-outlet>
+<app-note-main-view *ngIf="authenticationService.isLogged()"></app-note-main-view>

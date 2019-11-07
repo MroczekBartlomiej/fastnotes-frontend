@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppVisibilityService } from '../../../services/app-visibility.service';
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import { NoteService } from "../../../services/note.service";
 
 @Component({
     selector: 'app-note-main-view',
@@ -8,15 +9,18 @@ import { AppVisibilityService } from '../../../services/app-visibility.service';
 })
 export class NoteMainViewComponent implements OnInit {
 
-    opened = false;
+    opened = true;
+    private viewMode: string;
 
-    constructor(private appVisibilityService: AppVisibilityService) {
-        this.appVisibilityService.listVisibility.subscribe(() => {
-          this.opened = !this.opened;
-        });
+    constructor(private route: ActivatedRoute,
+                private noteService: NoteService) {
     }
 
     ngOnInit() {
+        this.route.paramMap.subscribe(queryParams => this.extractParamsFromUrl(queryParams));
     }
 
+    private extractParamsFromUrl(queryParams: ParamMap) {
+        this.noteService.loadNote(queryParams.get("noteId"));
+    }
 }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../../../services/note.service';
 import { Note } from '../../../models/Note';
-import { MenuItem } from 'primeng/api';
-import { NoteListService } from '../../../services/note-list.service';
 
 @Component({
     selector: 'app-notes-list',

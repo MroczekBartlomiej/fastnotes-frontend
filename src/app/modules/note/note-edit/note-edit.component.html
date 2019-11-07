@@ -1,22 +1,11 @@
 <div *ngIf="note" style="min-height: 100%">
-    <div class="button-bar">
-        <mat-slide-toggle class="button-bar-item" color="primary" labelPosition="after" (change)="changeMode()">Edit
-        </mat-slide-toggle>
-        <button mat-raised-button class="button-bar-item" color="primary" (click)="save()">Save</button>
-    </div>
     <mat-grid-list cols="4" style="height: 100%;">
-        <mat-grid-tile *ngIf="!edit" [colspan]="3" style="height: 100%; overflow: auto">
-            <div class="edit-field height-100 width-100">
-                <markdown [lineNumbers]="true" class="height-100 width-100" [data]="note.body"></markdown>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile *ngIf="edit" [colspan]="3" style="height: 100%;">
+        <mat-grid-tile [colspan]="3" style="height: 100%;">
             <div class="preview-field height-100 width-100">
                 <textarea class="edit-area" [(ngModel)]="note.body" style="height: 100%; width: 100%"></textarea>
             </div>
         </mat-grid-tile>
         <mat-grid-tile colspan="1" [style.background]="'white'" style="height: 100%;">
-
         </mat-grid-tile>
     </mat-grid-list>
 </div>

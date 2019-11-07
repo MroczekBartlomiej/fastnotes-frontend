@@ -1,5 +1,5 @@
 <div>
   <mat-list>
-    <mat-list-item *ngFor="let note of notes" (click)="loadNote(note.id)">{{note.body}}</mat-list-item>
+    <mat-list-item *ngFor="let note of notes" [routerLink]="[{outlets: {note: [note.id, 'view']}}]" >{{note.body}}</mat-list-item>
   </mat-list>
 </div>
